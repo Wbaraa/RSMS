@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="title"><h1>Admin Dashboard</h1></div>
+
+<div class="card">
+  <h3>Add User</h3>
+  <form id="user-form">
+    <div class="form-group"><input type="text" name="full_name" placeholder="Full Name" required></div>
+    <div class="form-group">
+      <input type="email" name="email" id="emailInput" placeholder="Email" required>
+      <small id="emailError" style="color: red; display: none;">Please enter a valid email address</small>
+    </div>
+    <div class="form-group" style="position: relative;">
+      <input type="password" name="password" id="passwordInput" placeholder="Password" required>
+      <span id="togglePassword" style="position: absolute; right: 10px; top: 8px; cursor: pointer;">👁️</span>
+    </div>
+    <div class="form-group"><input type="text" name="address" placeholder="Address" required></div>
+    <div class="form-group">
+      <input type="text" name="number" id="phoneNumber" placeholder="Phone Number" required pattern="\d{8}" title="Please input 8 digit number, not a string">
+      <small id="phoneError" style="color: red; display: none;">Please input 8 digit number, not a string</small>
+    </div>
+    <button type="button" onclick="showSensorSelection()">Next</button>
+  </form>
+
+  <div id="sensor-form" class="hidden">
+    <h4>Select Sensors</h4>
+    <div class="sensor-list">
+      <label><input type="checkbox" value="Temperature"> Temperature</label>
+      <label><input type="checkbox" value="Humidity"> Humidity</label>
+      <label><input type="checkbox" value="Gas"> Gas</label>
+      <label><input type="checkbox" value="Fire"> Fire</label>
+      <label><input type="checkbox" value="Motion"> Motion</label>
+      <label><input type="checkbox" value="Door"> Door</label>
+      <label><input type="checkbox" value="LED"> LED</label>
+      <label><input type="checkbox" value="Fan"> Fan</label>
+    </div>
+    <br>
+    <button onclick="submitUserForm()">Add</button>
+  </div>
+</div>
+
+<div class="card">
+  <h3>Users</h3>
+  <table id="usersTable">
+    <thead>
+      <tr>
+        <th>ID</th><th>Full Name</th><th>Email</th><th>Password</th><th>Address</th><th>Phone</th><th>Remove</th><th>Table of Logs</th>
+      </tr>
+    </thead>
+    <tbody id="usersBody"></tbody>
+  </table>
+</div>
+
+<div class="card hidden" id="logsCard">
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+    <h3>Device Logs for <span id="logUser"></span></h3>
+    
+    <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+      <label for="sensorFilter"><strong>Filter Sensor:</strong></label>
+      <select id="sensorFilter" onchange="applyFilters()">
+        <option value="all">All</option>
+      </select>
+
+      <label for="dateFilter"><strong>Filter Day:</strong></label>
+      <input type="date" id="dateFilter" onchange="applyFilters()">
+
+      <button onclick="resetFilters()" style="padding: 5px 10px; background-color: #c4a8fa; border: none; border-radius: 6px; cursor: pointer;">
+        🔄 Reset Filters
+      </button>
+    </div>
+  </div>
+
+  <table id="logsTable">
+    <thead><tr></tr></thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", loadUsers);
+
+function showSensorSelection() {
+  const form = document.querySelector('#user-form');
+  const phoneInput = document.getElementById("phoneNumber");
+  const phoneError = document.getElementById("phoneError");
+  const phoneValue = phoneInput.value;
+
+  const emailInput = document.getElementById("emailInput");
+  const emailError = document.getElementById("emailError");
+  const emailValue = emailInput.value;
+
+  const isPhoneValid = /^\d{8}$/.test(phoneValue);
+  const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue);
+
+  if (!form.checkValidity() || !isPhoneValid || !isEmailValid) {
+    alert("Please fill all fields correctly");
+
+    if (!isPhoneValid) {
+      phoneError.style.display = "block";
+      phoneInput.style.border = "2px solid red";
+    } else {
+      phoneError.style.display = "none";
+      phoneInput.style.border = "2px solid #d4b6f9";
+    }
+
+    if (!isEmailValid) {
+      emailError.style.display = "block";
+      emailInput.style.border = "2px solid red";
+    } else {
+      emailError.style.display = "none";
+      emailInput.style.border = "2px solid #d4b6f9";
+    }
+    return;
+  }
+
+  phoneError.style.display = "none";
+  phoneInput.style.border = "2px solid #d4b6f9";
+  emailError.style.display = "none";
+  emailInput.style.border = "2px solid #d4b6f9";
+
+  document.getElementById("sensor-form").classList.remove("hidden");
+}
+
+function submitUserForm() {
+  const formData = new FormData(document.getElementById("user-form"));
+  const sensors = Array.from(document.querySelectorAll('#sensor-form input[type="checkbox"]:checked')).map(cb => cb.value);
+  formData.append("sensors", JSON.stringify(sensors));
+
+  fetch("add_user.php", {
+    method: "POST",
+    body: formData
+  })
+  .then(res => res.text())
+  .then(() => {
+    loadUsers();
+    document.getElementById("user-form").reset();
+    document.getElementById("sensor-form").classList.add("hidden");
+  });
+}
+
+function loadUsers() {
+  fetch("get_users.php")
+    .then(res => res.json())
+    .then(users => {
+      const body = document.getElementById("usersBody");
+      body.innerHTML = "";
+      users.forEach(user => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${user.id}</td>
+          <td>${user.full_name}</td>
+          <td>${user.email}</td>
+          <td class="password-cell" data-password="${user.password}">******</td>
+          <td>${user.address}</td>
+          <td>${user.number}</td>
+          <td><button onclick="removeUser(${user.id})">Remove</button></td>
+          <td><button onclick="showLogs(${user.id}, '${user.full_name}')">Table of Logs</button></td>
+        `;
+        body.appendChild(row);
+      });
+    });
+}
+
+function removeUser(id) {
+  const formData = new FormData();
+  formData.append("user_id", id);
+
+  fetch("remove_user.php", {
+    method: "POST",
+    body: formData
+  }).then(() => loadUsers());
+}
+
+function showLogs(id, name) {
+  fetch(`get_logs_by_user.php?user_id=${id}`)
+    .then(res => res.json())
+    .then(({ columns, logs }) => {
+      document.getElementById("logUser").textContent = name;
+      const logsHead = document.querySelector("#logsTable thead tr");
+      const logsBody = document.querySelector("#logsTable tbody");
+      const filterSelect = document.getElementById("sensorFilter");
+
+      logsHead.innerHTML = "";
+      logsBody.innerHTML = "";
+      filterSelect.innerHTML = '<option value="all">All</option>';
+
+      columns.forEach(col => {
+        const th = document.createElement("th");
+        th.textContent = col;
+        logsHead.appendChild(th);
+
+        const key = col.toLowerCase();
+        if (key !== "id" && key !== "record_time") {
+          const option = document.createElement("option");
+          option.value = key;
+          option.textContent = col;
+          filterSelect.appendChild(option);
+        }
+      });
+
+      logs.forEach(entry => {
+        const row = document.createElement("tr");
+        row.innerHTML = columns.map(col => `<td>${entry[col] ?? ''}</td>`).join("");
+        logsBody.appendChild(row);
+      });
+
+      document.getElementById("logsCard").classList.remove("hidden");
+      applyFilters();
+
+    });
+}
+
+function applyFilters() {
+  const selectedSensor = document.getElementById("sensorFilter").value;
+  const selectedDate = document.getElementById("dateFilter").value;
+  const table = document.getElementById("logsTable");
+  const thead = table.querySelector("thead tr");
+  const tbodyRows = table.querySelectorAll("tbody tr");
+  const headers = Array.from(thead.children);
+
+  headers.forEach((th, i) => {
+    const name = th.textContent.toLowerCase().replace(/\s+/g, '_');
+    const show = (selectedSensor === "all" || name === selectedSensor || name === "id" || name === "record_time");
+    th.style.display = show ? "" : "none";
+
+    tbodyRows.forEach(row => {
+      const cell = row.children[i];
+      if (cell) cell.style.display = show ? "" : "none";
+    });
+  });
+
+  tbodyRows.forEach(row => {
+    const recordTime = row.children[1]?.textContent; // index 1 = record_time
+    if (!recordTime) return;
+
+    const rowDate = recordTime.split(" ")[0]; // extract date
+    const matchDate = selectedDate === "" || rowDate === selectedDate;
+
+    row.style.display = matchDate ? "" : "none";
+  });
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const togglePassword = document.getElementById("togglePassword");
+  const passwordInput = document.getElementById("passwordInput");
+  togglePassword.addEventListener("click", () => {
+    const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+    passwordInput.setAttribute("type", type);
+    togglePassword.textContent = type === "password" ? "👁️" : "🙈";
+  });
+});
+
+document.getElementById("user-form").addEventListener("submit", function (e) {
+  const phoneInput = document.getElementById("phoneNumber");
+  const error = document.getElementById("phoneError");
+  const value = phoneInput.value;
+  const isValid = /^\d{8}$/.test(value);
+  if (!isValid) {
+    e.preventDefault();
+    error.style.display = "block";
+    phoneInput.style.border = "2px solid red";
+  } else {
+    error.style.display = "none";
+    phoneInput.style.border = "2px solid #d4b6f9";
+  }
+});
+
+document.getElementById("emailInput").addEventListener("input", function () {
+  this.value = this.value.replace(/[^\w@.\-]/g, '');
+  this.value = this.value.replace(/\s/g, '');
+});
+function resetFilters() {
+  document.getElementById("sensorFilter").value = "all";
+  document.getElementById("dateFilter").value = "";
+  applyFilters();
+}
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("password-cell")) {
+    const cell = e.target;
+    const current = cell.textContent;
+    if (current === "******") {
+      cell.textContent = cell.getAttribute("data-password");
+    } else {
+      cell.textContent = "******";
+    }
+  }
+});
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+/* General Page Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 40px;
+  background: linear-gradient(180deg, #c79bf2 0%, #f5e7ff 100%);
+  color: #2e1f49;
+}
+#title{
+  display: flex;
+  justify-content: center ;
+  font-family: "Bodoni Moda SC", serif;
+  font-size: large;
+  font-weight: bolder;
+
+}
+/* Card Container */
+.card {
+  background-color: #ffffff;
+  padding: 25px;
+  margin-bottom: 30px;
+  border-radius: 24px;
+  box-shadow: 0 10px 25px rgba(140, 92, 248, 0.2);
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #be8df9;
+  border-radius: 12px;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #3d2c63;
+  font-size: 15px;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #7b4de3;
+  outline: none;
+}
+
+/* Password Toggle Eye */
+#togglePassword {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  font-size: 18px;
+  color: #7b4de3;
+  cursor: pointer;
+}
+
+/* Buttons */
+button {
+  padding: 12px 22px;
+  margin: 6px 2px;
+  border: none;
+  background-color: #7b4de3;
+  color: #fff;
+  border-radius: 16px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+  box-shadow: 0 4px 12px rgba(123, 77, 227, 0.2);
+}
+
+button:hover {
+  background-color: #5c36b0;
+  transform: translateY(-1px);
+}
+
+/* Remove button special */
+button[onclick^="removeUser"] {
+  background-color: #e84343;
+  box-shadow: 0 4px 12px rgba(232, 67, 67, 0.2);
+}
+
+button[onclick^="removeUser"]:hover {
+  background-color: #c93232;
+}
+
+/* Hidden Section */
+.hidden {
+  display: none;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 8px 20px rgba(123, 77, 227, 0.1);
+}
+
+th, td {
+  border: 1px solid #e5d4f3;
+  padding: 14px;
+  text-align: center;
+  font-size: 14px;
+}
+
+th {
+  background-color: #e5d2fd;
+  font-weight: bold;
+  color: #4b2d77;
+}
+
+td {
+  color: #3e2d60;
+}
+
+/* Sensor List Styling */
+.sensor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+#logsTable th {
+  background-color: #efd7fc;
+  color: #4c2c7d;
+}
+
+#logsTable td {
+  font-size: 14px;
+  color: #3b2b55;
+}

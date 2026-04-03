@@ -1,0 +1,54 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.Finalsenior" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Base application theme colors -->
+        <item name="colorPrimary">@color/purple</item>
+        <item name="colorPrimaryVariant">@color/Dark_purple</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/purple</item>
+        <item name="colorSecondaryVariant">@color/Dark_purple</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="constraintLayoutBackground">@color/white</item>
+        <item name="cardViewStyle">@style/CustomCardView</item>
+        <item name="colorSurface">@color/card_background_light</item>
+        <item name="colorSecondaryContainer">@color/purple_light</item>
+
+        <!-- Text colors for intro screen -->
+        <item name="introTitleTextColor">@color/purple</item>
+        <item name="introSubtitleTextColor">@color/light_gray</item>
+        <item name="introButtonTextColor">@color/white</item>
+
+        <!-- Login-specific colors -->
+        <item name="loginEditTextColor">@color/black</item>
+        <item name="loginEditTextHintColor">@color/gray_light</item>
+
+        <!-- Home screen colors -->
+        <item name="homeCardTextColor">@color/black</item>
+        <item name="homeCardLabelColor">@color/gray_light</item>
+        <item name="homeControlCardColor">@color/purple_light</item>
+        <item name="homeControlTextColor">@color/black</item>
+
+        <!-- Logs-specific colors -->
+        <item name="logsScreenBackground">@color/white</item>
+        <item name="logsCardBackground">@color/white</item>
+        <item name="logsCardTextColor">@color/black</item>
+        <item name="logsCardTimestampColor">@color/gray_light</item>
+
+        <!-- Notifications-specific attributes -->
+        <item name="notificationCardBackground">@color/white</item>
+        <item name="notificationTextColor">@color/black</item>
+        <item name="notificationTimeColor">@color/gray_light</item>
+
+        <!-- Settings-specific attributes -->
+        <item name="settingsTitleTextColor">@color/white</item>
+        <item name="settingsOptionTextColor">@color/white</item>
+
+        <item name="navigationViewStyle">@style/Widget.App.NavigationView</item>
+
+        <!-- Add to your light theme in themes.xml -->
+        <item name="spinnerDropdownTextColor">@color/black</item>
+    </style>
+</resources>

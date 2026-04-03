@@ -1,0 +1,25 @@
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+**/.idea/
+*.iml
+**/.ipynb_checkpoints/
+
+# Generated build outputs
+**/.gradle/
+**/build/
+*.apk
+*.aab
+*.ap_
+**/local.properties
+
+# Runtime logs and process files
+*.log
+*.pid
+
+# Local Nginx RTMP runtime artifacts
+/nginx-rtmp-win32-dev/logs/
+/nginx-rtmp-win32-dev/temp/
+/nginx-rtmp-server/logs/
+/nginx-rtmp-server/temp/

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RSMS</string>
+    <string name="background_image_description">صورة خلفية لشاشة المقدمة</string>
+
+
+    <!-- Intro and Login -->
+    <string name="intro_title">نظام مراقبة خادم الغرفة</string>
+    <string name="intro_subtitle">تحكم في غرفة الخادم الخاصة بك وراقبها من أي مكان وفي أي وقت</string>
+    <string name="get_started">ابدأ الآن</string>
+    <string name="login_title">تسجيل الدخول</string>
+    <string name="email_address">البريد الإلكتروني</string>
+    <string name="email_hint">أدخل بريدك الإلكتروني</string>
+    <string name="password">كلمة المرور</string>
+    <string name="password_hint">أدخل كلمة المرور</string>
+    <string name="forgot_password">نسيت كلمة المرور؟</string>
+    <string name="login_button_text">تسجيل الدخول</string>
+
+
+    <!-- Add to values-ar/strings.xml -->
+    <string name="forgot_password_instructions">أدخل عنوان بريدك الإلكتروني وسنرسل لك كلمة مرور لمرة واحدة لإعادة تعيين كلمة المرور الخاصة بك.</string>
+    <string name="request_password">طلب كلمة المرور</string>
+    <string name="sending">جاري الإرسال...</string>
+    <string name="back_button_description">زر الرجوع</string>
+
+    <!-- Home Screen -->
+    <string name="greeting">مرحباً، %1$s</string>
+    <string name="monitoring_message">نظام مراقبة خادم الغرفة</string>
+    <string name="temperature">درجة الحرارة</string>
+    <string name="humidity">الرطوبة</string>
+    <string name="water">الماء</string>
+    <string name="fire">الحريق</string>
+    <string name="gas">الغاز</string>
+    <string name="motion">الحركة</string>
+    <string name="light">الإضاءة</string>
+    <string name="fan">المروحة</string>
+    <string name="door">الباب</string>
+    <string name="camera">الكاميرا</string>
+    <string name="temperature_format">%1$.1f °م</string>
+    <string name="humidity_format">%1$.1f %%</string>
+    <string name="status_format">%1$s</string>
+
+    <!-- Navigation Menu -->
+    <string name="navigation_open">فتح قائمة التنقل</string>
+    <string name="navigation_close">إغلاق قائمة التنقل</string>
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_logs">سجلات الاستشعار</string>
+    <string name="nav_notifications">الإشعارات</string>
+    <string name="nav_help">المساعدة والدعم</string>
+    <string name="nav_settings">الإعدادات</string>
+    <string name="nav_logout">تسجيل الخروج</string>
+
+    <!-- Settings -->
+    <string name="language">اللغة</string>
+    <string name="english">الإنجليزية</string>
+    <string name="arabic">العربية</string>
+    <string name="theme">السمة</string>
+    <string name="dark_mode">الوضع الداكن</string>
+    <string name="notification_style">نمط الإشعارات</string>
+    <string name="notification">رسالة</string>
+    <string name="alarm_sound">صوت التنبيه</string>
+    <string name="vibration">اهتزاز</string>
+    <string name="mute_notifications">كتم الإشعارات</string>
+    <string name="Open_Logs_Web">أفتح صفحة المتصفح للسجلات</string>
+
+    <!-- Help Screen -->
+    <string name="help_title">المساعدة والدعم</string>
+    <string name="contact_support">اتصل بالدعم</string>
+
+    <!-- Help page content -->
+    <string name="help_welcome">مرحبًا بك في تطبيق نظام مراقبة خادم الغرفة. سيساعدك هذا الدليل على فهم كيفية استخدام جميع ميزات نظام مراقبة غرفة الخادم.</string>
+    <string name="help_intro_title">مقدمة</string>
+    <string name="help_intro_content">يتيح لك تطبيق نظام مراقبة خادم الغرفة مراقبة والتحكم في الظروف البيئية الحرجة في غرفة الخادم من أي مكان، مما يضمن سلامة وأداء أمثل للمعدات الخاصة بك.</string>
+    <string name="help_home_title">الشاشة الرئيسية</string>
+    <string name="help_home_monitoring">• مراقبة البيانات في الوقت الفعلي من جميع أجهزة الاستشعار المثبتة:\n  - درجة الحرارة: درجة الحرارة الحالية بالدرجة المئوية\n  - الرطوبة: نسبة الرطوبة الحالية\n  - الماء: يكتشف تسربات المياه التي قد تتلف المعدات\n  - الحريق: يراقب اكتشاف الحرائق\n  - الغاز: يكتشف مستويات الغاز الضارة\n  - الحركة: ينبهك إلى الحركة غير المتوقعة</string>
+    <string name="help_home_controls">• التحكم في الأجهزة عن بُعد:\n  - الإضاءة: تشغيل/إيقاف أضواء غرفة الخادم\n  - المروحة: التحكم في مراوح التبريد\n  - الباب: تأمين الوصول من خلال قفل/فتح الأبواب\n  - الكاميرا: تمكين/تعطيل كاميرا المراقبة</string>
+    <string name="help_logs_title">سجلات الاستشعار</string>
+    <string name="help_logs_content">• الوصول إلى بيانات أجهزة الاستشعار التاريخية لتحديد الأنماط\n• عرض سجلات مختومة بالوقت لجميع قراءات أجهزة الاستشعار\n• سحب لتحديث أحدث البيانات\n• مؤشرات مشفرة بالألوان تسلط الضوء على القيم الحرجة</string>
+    <string name="help_notifications_title">الإشعارات</string>
+    <string name="help_notifications_content">• استلام تنبيهات في الوقت الحقيقي عندما تتجاوز قيم أجهزة الاستشعار العتبات الآمنة\n• عرض جميع الإشعارات السابقة بترتيب زمني\n• وضع علامة على الإشعارات كمقروءة بشكل فردي أو دفعة واحدة\n• تكوين تفضيلات الإشعارات في الإعدادات</string>
+    <string name="help_settings_title">الإعدادات</string>
+    <string name="help_settings_content">• اللغة: التبديل بين الإنجليزية والعربية\n• السمة: الاختيار بين الوضع الفاتح والداكن\n• نمط الإشعارات: اختر من بين الصوت أو الاهتزاز أو الإشعارات الصامتة\n• كتم الإشعارات: كتم التنبيهات مؤقتًا (15 دقيقة إلى 24 ساعة)</string>
+    <string name="help_troubleshooting_title">استكشاف الأخطاء وإصلاحها</string>
+    <string name="help_troubleshooting_sensor">• لا توجد بيانات من أجهزة الاستشعار:\n  - تحقق من اتصال WiFi على كل من الجهاز والخادم\n  - تأكد من تشغيل وحدة تحكم ESP32\n  - أعد تشغيل التطبيق والخادم إذا استمرت مشكلات الاتصال</string>
+    <string name="help_troubleshooting_device">• مشكلات التحكم في الجهاز:\n  - تأكد من توصيل جميع الأجهزة بشكل صحيح بنظام التحكم\n  - تحقق من وجود تحديثات البرامج الثابتة على وحدة تحكم ESP32 الخاصة بك</string>
+    <string name="help_troubleshooting_alert">• نظام التنبيه:\n  - اختبر النظام شهريًا للتأكد من أن جميع التنبيهات تعمل بشكل صحيح\n  - تحقق من إعدادات الإشعارات إذا لم يتم استلام التنبيهات</string>
+    <string name="help_contact_note">لمزيد من المعلومات الفنية التفصيلية أو المساعدة، يرجى استخدام زر الاتصال بالدعم أدناه.</string>
+    <string name="help_guide_title">دليل نظام مراقبة خادم الغرفة</string>
+    <string name="help_assistance_title">هل تحتاج إلى مساعدة إضافية؟</string>
+    <string name="help_assistance_message">إذا كنت بحاجة إلى مساعدة إضافية أو لديك أسئلة محددة حول نظام مراقبة غرفة الخادم الخاص بك، فإن فريق الدعم الفني لدينا مستعد لمساعدتك.</string>
+    <string name="help_email_subject">طلب دعم نظام مراقبة خادم الغرفة</string>
+    <string name="help_email_body">يرجى وصف المشكلة التي تواجهها هنا.\n\nمعلومات الجهاز:\n- إصدار التطبيق: 1.0\n- طراز الجهاز: %1$s\n- إصدار أندرويد: %2$s\n</string>
+
+    <!-- Notifications -->
+    <string name="no_notifications">لا توجد إشعارات</string>
+    <string name="mark_all_read">وضع علامة على الكل كمقروء</string>
+
+    <!-- Sensor Logs -->
+    <string name="no_logs">لا توجد سجلات استشعار متاحة</string>
+    <string name="connecting">جاري الاتصال بالخادم...</string>
+
+    <!-- Add other strings used in your app -->
+
+    <!-- Arrays -->
+    <string-array name="mute_times">
+        <item>إيقاف (استلام جميع الإشعارات)</item>
+        <item>15 دقيقة</item>
+        <item>ساعة واحدة</item>
+        <item>8 ساعات</item>
+        <item>24 ساعة</item>
+    </string-array>
+
+    <string name="language_changed">تم تغيير اللغة إلى %1$s</string>
+    <string name="dark_mode_enabled">تم تمكين الوضع الداكن</string>
+    <string name="light_mode_enabled">تم تمكين الوضع الفاتح</string>
+    <string name="notification_style_changed">تم تعيين نمط الإشعارات إلى %1$s</string>
+    <!-- New string for multiple notification styles -->
+    <string name="notification_styles_changed">تم تحديث أنماط الإشعارات</string>
+
+</resources>

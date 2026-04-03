@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.App.NavigationView" parent="Widget.MaterialComponents.NavigationView">
+        <item name="itemIconTint">@color/nav_item_color_dark</item>
+        <item name="itemTextColor">@color/nav_item_color_dark</item>
+        <item name="itemShapeFillColor">@color/nav_item_background_color_dark</item>
+    </style>
+
+    <style name="CustomCardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">?attr/colorSurface</item>
+    </style>
+</resources>

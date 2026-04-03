@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Live Camera Stream</title>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    video {
+      width: 100vw;
+      height: auto;
+      max-height: 100vh;
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+  <video id="video" autoplay muted playsinline controls></video>
+
+  <script>
+    var video = document.getElementById('video');
+    var videoSrc = 'http://172.21.14.8:8088/hls/stream.m3u8';
+
+    if (Hls.isSupported()) {
+      var hls = new Hls({
+        liveSyncDuration: 3,
+        maxLiveSyncPlaybackRate: 1.5
+      });
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function () {
+        hls.startLoad();
+        video.play();
+      });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = videoSrc;
+      video.addEventListener('loadedmetadata', function () {
+        video.play();
+      });
+    }
+  </script>
+</body>
+</html>

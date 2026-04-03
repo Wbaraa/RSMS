@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Visible text in the list -->
+    <string-array name="lang_names">
+        <item>English</item>
+        <item>عربي</item>
+    </string-array>
+
+    <!-- The actual locale codes your app will apply -->
+    <string-array name="lang_codes">
+        <item>en</item>
+        <item>ar</item>
+
+    </string-array>
+
+</resources>

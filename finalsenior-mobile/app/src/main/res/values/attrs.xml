@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Custom attribute for ConstraintLayout background color that changes with theme -->
+    <attr name="constraintLayoutBackground" format="color" />
+    <attr name="introTitleTextColor" format="color|reference" />
+    <attr name="introSubtitleTextColor" format="color|reference" />
+    <attr name="introButtonTextColor" format="color|reference" />
+
+    <!-- Login-specific attributes -->
+    <attr name="loginEditTextColor" format="color|reference" />
+    <attr name="loginEditTextHintColor" format="color|reference" />
+
+    <!-- Home screen specific attributes -->
+    <attr name="homeCardTextColor" format="color|reference" />
+    <attr name="homeCardLabelColor" format="color|reference" />
+    <attr name="homeControlCardColor" format="color|reference" />
+    <attr name="homeControlTextColor" format="color|reference" />
+
+    <!-- Logs-specific attributes -->
+    <attr name="logsScreenBackground" format="color|reference" />
+    <attr name="logsCardBackground" format="color|reference" />
+    <attr name="logsCardTextColor" format="color|reference" />
+    <attr name="logsCardTimestampColor" format="color|reference" />
+
+    <!-- Notifications-specific attributes -->
+    <attr name="notificationCardBackground" format="color|reference" />
+    <attr name="notificationTextColor" format="color|reference" />
+    <attr name="notificationTimeColor" format="color|reference" />
+
+    <!-- Help-specific attributes -->
+    <attr name="helpCardBackground" format="color|reference" />
+    <attr name="helpTextColor" format="color|reference" />
+    <attr name="helpButtonBackground" format="color|reference" />
+
+    <!-- Settings-specific attributes -->
+    <attr name="settingsCardTextColor" format="color|reference" />
+    <attr name="settingsHeaderTextColor" format="color|reference" />
+    <attr name="settingsTitleTextColor" format="color|reference" />
+    <attr name="settingsOptionTextColor" format="color|reference" />
+
+    <!-- Spinner-specific attributes -->
+    <attr name="spinnerDropdownTextColor" format="color|reference" />
+
+    <!-- Add this if it's still being referenced anywhere -->
+    <attr name="colorBackground" format="color" />
+
+    <!-- Add this if you're using it -->
+    <attr name="cardBackgroundColor" format="color" />
+</resources>
